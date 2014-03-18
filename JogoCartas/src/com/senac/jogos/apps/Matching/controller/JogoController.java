@@ -1,5 +1,6 @@
 package com.senac.jogos.apps.Matching.controller;
 
+import com.senac.jogos.cartas.Baralho;
 import com.senac.jogos.cartas.Carta;
 import com.senac.jogos.apps.Matching.model.MatchingCardGame;
 
@@ -7,6 +8,7 @@ public class JogoController {
 	
 	private MatchingCardGame jogo;
 	private Carta cartaJogador;
+	private static int qtdeCartas;
 	
 	public JogoController(){
 		jogo = new MatchingCardGame();
@@ -26,7 +28,7 @@ public class JogoController {
 	}
 	
 	public String showCarta(Carta carta){
-		return String.format("%d%c", carta.getValor() + carta.getNaipe());
+		return String.format("%d%c", carta.getValor(), carta.getNaipe());
 	}
 	
 	public String showMesa(){
@@ -38,5 +40,14 @@ public class JogoController {
 			cartaJogador = jogo.drawCarta();
 		return showCarta(cartaJogador);
 	}
+	
+	public static void setQtdeCartas(int qtde){
+		qtdeCartas = qtde;
+	}
+	
+	public int getQtdeCartas(){
+		return qtdeCartas;
+	}
+	
 
 }

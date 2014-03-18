@@ -18,13 +18,16 @@ public class MatchingCardGame {
 	}
 	
 	public int matchCarta(Carta carta){
-		int score = -1;
+		int score = 0;
 		
 		if(carta.getNaipe() == mesa.getNaipe())
 			score = 1;
 		
 		if(carta.getValor() == mesa.getValor())
 			score = 4;
+		
+		if(carta.getValor() != mesa.getValor() && carta.getNaipe() != mesa.getNaipe())
+			score = -2;
 		
 		return score;
 	}
@@ -40,6 +43,7 @@ public class MatchingCardGame {
 	public Carta drawCarta(){
 		return baralho.drawCarta();
 	}
+	
 	public Jogador getJogador(){
 		return jogador;
 	}

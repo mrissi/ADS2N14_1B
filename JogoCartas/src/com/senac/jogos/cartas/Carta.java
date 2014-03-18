@@ -15,12 +15,12 @@ public class Carta {
 				break;
 			default:
 				this.naipe = 'J';
-			break;
 		}
+		
 		if (valor > 0 || valor <= 13)
 			this.valor = valor;
 		else {
-			this.valor = 0;
+			this.valor = '0';
 			this.naipe = 'J';
 		}
 	}

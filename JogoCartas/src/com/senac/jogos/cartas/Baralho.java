@@ -1,12 +1,16 @@
 package com.senac.jogos.cartas;
 
+import com.senac.jogos.apps.Matching.controller.JogoController;
+
 public class Baralho {
 	
 	private Carta[] cartas = new Carta[52];
-	private int numCartas;
+	public int numCartas;
 	
 	public Baralho()
 	{
+		numCartas = 0;
+		
 		char[] naipes = new char[4];
 		naipes[0] = 'C';
 		naipes[1] = 'O';
@@ -33,7 +37,10 @@ public class Baralho {
 		
 		cartas[carta] = cartas[numCartas];
 		
+		JogoController.setQtdeCartas(numCartas);
+		
 		return sorteada;
 	}
+	
 
 }
