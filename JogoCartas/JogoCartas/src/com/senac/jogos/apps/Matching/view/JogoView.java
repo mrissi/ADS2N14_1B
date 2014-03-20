@@ -41,49 +41,40 @@ public class JogoView {
 		}
 		
 		//INICIANDO JOGADAS
-		
+		play = 1;
 		
 		//INICIANDO JOGO - VIRANDO CARTA NA MESA
 		out.println("Carta na mesa: " + controller.showMesa());
 		out.println(controller.getQtdeCartas());
-		
-		int comando;
 		
 		do{
 			//JOGADAS
 			out.println("Qual sua Jogada?");
 			out.println("1 - Jogar");
 			out.println("2 - Passar a vez");
-				
-			comando = teclado.nextInt();
-				
+			
+			int comando = teclado.nextInt();
+			
 			//JOGAR
 			if(comando == 1){
 				out.println("Carta do jogador: " + controller.showCartaJogador());
 				controller.playTurno();
-				controller.setPassaVez(false);
-					
+				
 				out.println("\nCarta na mesa: " + controller.showMesa());
 				out.println("Jogadas restantes: " + controller.getQtdeCartas());
 			}
-				
+			
 			//PULA TURNO
 			else{
-				if(controller.passaVez() == false){
-					System.out.println("Você passou a vez perde 1 ponto");
-					controller.setPassaVez(true);
-					controller.playTurno();
-				}
-				else
-					System.out.println("Não pode passar a vez.");
+				
 			}
+		
+		// else pula turno
+		
 			out.println("Pontos do Jogador: " + controller.showJogador());
 			
 		} while (controller.getQtdeCartas() > 0);
 		
-		out.println("\n***************************");
-		out.println("Resultado final:");		
-		out.println("Pontos do Jogador: " + controller.showJogador());
 	}
 
 }
