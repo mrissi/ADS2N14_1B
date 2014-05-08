@@ -64,4 +64,5 @@ public class JogoController {
 		Jogador.setPula(passa);
 	}
 	
+	
 }
